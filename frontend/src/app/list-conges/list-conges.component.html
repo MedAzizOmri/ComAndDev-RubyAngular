@@ -1,0 +1,25 @@
+<br><br>
+<h3 class="card-title mb-0" style="margin-left:70px;">Permissions List</h3>
+<br><br>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Start Date</th>
+            <th scope="col">End Date</th>
+            <th scope="col">Reason Or Comment</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let conge of conges">
+            <td scope="row">{{ conge.id }}</td>
+            <td>{{ conge.dateDebut }}</td>
+            <td>{{ conge.dateFin }}</td>
+            <td>{{ conge.commentaire }}</td>
+            <th>
+                <button class="btn btn-outline-success" routerLink="/edit/conge/{{ conge.id }}">Edit</button> | <button class="btn btn-outline-danger" (click)="deleteConge(conge.id)">Delete</button>
+            </th>
+        </tr>
+    </tbody>
+</table>

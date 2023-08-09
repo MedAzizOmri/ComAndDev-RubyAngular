@@ -1,0 +1,22 @@
+<br>
+<h3 class="card-title mb-0" style="margin-left:170px;">You Can Login On Your Account !</h3>
+<br><br>
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <div class="form-group row">
+        <label for="email" class="col-sm-3 text-end control-label col-form-label">Email :</label>
+        <div class="col-sm-7">
+            <input type="email" class="form-control" id="email" formControlName="email" placeholder="*****@example.com">
+        </div>
+    </div>
+    <br>
+    <div class="form-group row">
+        <label for="password" class="col-sm-3 text-end control-label col-form-label">Password :</label>
+        <div class="col-sm-7">
+            <input type="password" class="form-control" id="password" formControlName="password" placeholder="********">
+        </div>
+    </div>
+    <br>
+    <div class="form-group">
+        <button style="margin-left:550px;" type="submit" class="btn btn-outline-primary">Login</button>
+    </div>
+</form>

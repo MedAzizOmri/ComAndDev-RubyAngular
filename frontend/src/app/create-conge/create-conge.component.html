@@ -1,0 +1,29 @@
+<br><br>
+<h3 class="card-title mb-0" style="margin-left:70px;">Add A New Permission</h3>
+<br><br>
+<form [formGroup]="congeForm" (ngSubmit)="onSubmit()">
+    <div class="form-group row">
+        <label for="dateDebut" class="col-sm-3 text-end control-label col-form-label">Start Date :</label>
+        <div class="col-sm-7">
+            <input type="date" class="form-control" id="dateDebut" formControlName="dateDebut" placeholder="Start Date">
+        </div>
+    </div>
+    <br>
+    <div class="form-group row">
+        <label for="dateFin" class="col-sm-3 text-end control-label col-form-label">End Date :</label>
+        <div class="col-sm-7">
+            <input type="date" class="form-control" id="dateFin" formControlName="dateFin" placeholder="End Date">
+        </div>
+    </div>
+    <br>
+    <div class="form-group row">
+        <label for="commentaire" class="col-sm-3 text-end control-label col-form-label">Reason Or Comment :</label>
+        <div class="col-sm-7">
+            <textarea class="form-control" id="commentaire" rows="3" formControlName="commentaire"></textarea>
+        </div>
+    </div>
+    <br>
+    <div class="form-group">
+        <button style="margin-left:550px;" type="submit" class="btn btn-outline-primary">Add New Permission</button>
+    </div>
+</form>
