@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss','./loginStyle.css']
 })
 export class LoginComponent {
 
@@ -34,6 +34,10 @@ export class LoginComponent {
       }
     );
     
+  }
+
+  register(){
+    this.router.navigate(['register/user'])
   }
 
 }
