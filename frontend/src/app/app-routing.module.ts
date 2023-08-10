@@ -1,4 +1,6 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+
 import { RouterModule, Routes } from '@angular/router';
 import { ListCongesComponent } from './list-conges/list-conges.component';
 import { CreateCongeComponent } from './create-conge/create-conge.component';
@@ -21,7 +23,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes),FormsModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
