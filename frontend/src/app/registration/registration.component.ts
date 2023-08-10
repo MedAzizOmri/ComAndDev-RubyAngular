@@ -7,7 +7,8 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
-  styleUrls: ['./registration.component.scss']
+  styleUrls: ['./registration.component.scss',
+              './registerStyle.css']
 })
 export class RegistrationComponent {
 
@@ -26,13 +27,19 @@ export class RegistrationComponent {
 
   }
 
+  login(){
+    this.router.navigate(['/login/user'])
+  }
+
   onSubmit(){
     this.userService.getRegistered(this.userForm.value).subscribe(
       user => {
-        this.user=user
+        this.user=user;
+        alert("Account created successfully !");
+        this.router.navigate(['/login/user']);
       }
     );
-    this.router.navigate(['/login/user']);
+    
   }
 
 }

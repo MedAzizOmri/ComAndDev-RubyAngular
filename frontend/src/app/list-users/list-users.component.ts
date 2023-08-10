@@ -22,6 +22,22 @@ export class ListUsersComponent {
     this.router.navigate(['/login/user'])
   }
 
+  permissionsList(){
+    this.router.navigate(['/list/conge'])
+  }
+
+  permissionCreate(){
+    this.router.navigate(['/create/conge'])
+  }
+
+  usersList(){
+    this.router.navigate(['/list/users'])
+  }
+
+  dashboard(){
+    this.router.navigate(['home'])
+  }
+
   ngOnInit(){
     this.CongeList()
   }

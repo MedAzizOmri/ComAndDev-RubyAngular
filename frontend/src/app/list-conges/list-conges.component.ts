@@ -1,17 +1,40 @@
 import { Component } from '@angular/core';
 import { CongeService } from '../services/conge.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-conges',
   templateUrl: './list-conges.component.html',
-  styleUrls: ['./list-conges.component.scss']
+  styleUrls: ['./list-conges.component.scss',
+              '../../assets/dist/css/style.min.css',
+              '../../assets/libs/flot/css/float-chart.css']
 })
 export class ListCongesComponent {
 
   conges:any;
 
-  constructor(private congeService: CongeService){
+  constructor(private congeService: CongeService,private router : Router){
 
+  }
+
+  logout(){
+    this.router.navigate(['/login/user'])
+  }
+
+  permissionsList(){
+    this.router.navigate(['/list/conge'])
+  }
+
+  permissionCreate(){
+    this.router.navigate(['/create/conge'])
+  }
+
+  usersList(){
+    this.router.navigate(['/list/users'])
+  }
+
+  dashboard(){
+    this.router.navigate(['home'])
   }
 
   ngOnInit(){
@@ -30,9 +53,10 @@ export class ListCongesComponent {
   deleteConge(id:any){
     this.congeService.deleteConge(id).subscribe(
       conge => {
-        console.log("Conge has been deleted.")
+        console.log("Conge has been deleted.");
       }
     )
+    alert("Permission deleted successfully !");
   }
 
 }

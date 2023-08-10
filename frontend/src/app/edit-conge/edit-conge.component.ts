@@ -7,7 +7,9 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router'
 @Component({
   selector: 'app-edit-conge',
   templateUrl: './edit-conge.component.html',
-  styleUrls: ['./edit-conge.component.scss']
+  styleUrls: ['./edit-conge.component.scss',
+              '../../assets/dist/css/style.min.css',
+              '../../assets/libs/flot/css/float-chart.css']
 })
 export class EditCongeComponent {
 
@@ -17,10 +19,30 @@ export class EditCongeComponent {
 
   constructor(
     private congeService: CongeService,
-    private route: ActivatedRoute
-    ){
+    private route: ActivatedRoute, 
+    private router:Router){
 
-  }
+    }
+  
+    logout(){
+      this.router.navigate(['/login/user'])
+    }
+  
+    permissionsList(){
+      this.router.navigate(['/list/conge'])
+    }
+  
+    permissionCreate(){
+      this.router.navigate(['/create/conge'])
+    }
+  
+    usersList(){
+      this.router.navigate(['/list/users'])
+    }
+  
+    dashboard(){
+      this.router.navigate(['home'])
+    }
 
   ngOnInit(){
     const routeParams = this.route.snapshot.paramMap;
@@ -41,7 +63,9 @@ export class EditCongeComponent {
   onSubmit(){
     this.congeService.updateConge(this.congeForm.value, this.id).subscribe(
       (conge) => {
-        console.log("Conge updated successfully.");
+        console.log("Permission updated successfully.");
+        alert("Permission updated successfully !");
+        this.router.navigate(['/list/conge']);
       }
     )
   }

@@ -228,25 +228,25 @@
               <nav class="sidebar-nav">
                   <ul id="sidebarnav" class="pt-4">
                       <li class="sidebar-item"> 
-                        <a class="sidebar-link waves-effect waves-dark sidebar-link" routerLink="" aria-expanded="false">
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link" (click)="dashboard()" aria-expanded="false">
                           <i class="mdi mdi-view-dashboard"></i>
                           <span class="hide-menu">Dashboard</span>
                         </a>
                       </li>
                       <li class="sidebar-item"> 
-                        <a class="sidebar-link waves-effect waves-dark sidebar-link" routerLink="list/users" aria-expanded="false">
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link" (click)="usersList()" aria-expanded="false">
                           <i class="mdi mdi-chart-bar"></i>
                           <span class="hide-menu">Users List</span>
                         </a>
                       </li>
                       <li class="sidebar-item"> 
-                        <a class="sidebar-link waves-effect waves-dark sidebar-link" routerLink="create/conge" aria-expanded="false">
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link" (click)="permissionCreate()" aria-expanded="false">
                           <i class="mdi mdi-chart-bubble"></i>
                           <span class="hide-menu">Create Permission</span>
                         </a>
                       </li>
                       <li class="sidebar-item"> 
-                        <a class="sidebar-link waves-effect waves-dark sidebar-link" routerLink="list/conge" aria-expanded="false">
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link" (click)="permissionsList()" aria-expanded="false">
                           <i class="mdi mdi-chart-bubble"></i>
                           <span class="hide-menu">Permissions List</span>
                         </a>
@@ -278,12 +278,12 @@
           <div class="page-breadcrumb">
               <div class="row">
                   <div class="col-12 d-flex no-block align-items-center">
-                      <h4 class="page-title">Dashboard</h4>
+                      <h4 class="page-title">Users List</h4>
                       <div class="ms-auto text-end">
                           <nav aria-label="breadcrumb">
                               <ol class="breadcrumb">
-                                  <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                  <li class="breadcrumb-item active" aria-current="page">Library</li>
+                                  <li class="breadcrumb-item">Dashboard</li>
+                                  <li class="breadcrumb-item active" aria-current="page">Users List</li>
                               </ol>
                           </nav>
                       </div>
@@ -302,10 +302,6 @@
               <!-- ============================================================== -->
               <div class="row">
                   <!-- Column -->
-
-
-                <br><br>
-                <h3 class="card-title mb-0" style="margin-left:70px;">Users List</h3>
                 <br><br>
                 <table class="table">
                     <thead>
