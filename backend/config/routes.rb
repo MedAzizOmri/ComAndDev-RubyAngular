@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   post '/demandeConge', to: 'conges#create'
   put '/demandeConge/:id', to: 'conges#update'
   delete '/demandeConge/:id', to: 'conges#destroy'
+  put '/demandeCongeStatus/:id', to: 'conges#status'
 
 
   #User

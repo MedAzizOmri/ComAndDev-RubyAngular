@@ -16,7 +16,8 @@ class CongesController < ApplicationController
         conge = DemandeConge.new(
             dateDebut: conge_params[:dateDebut],
             dateFin: conge_params[:dateFin],
-            commentaire: conge_params[:commentaire]
+            commentaire: conge_params[:commentaire],
+            etat: false
         )
         if conge.save
             render json:conge, status: 200
@@ -39,8 +40,19 @@ class CongesController < ApplicationController
     def update
         conge = DemandeConge.find(params[:id])
         if conge
-            conge.update(dateDebut: params[:dateDebut], dateFin: params[:dateFin], commentaire: params[:commentaire])
+            conge.update(dateDebut: params[:dateDebut], dateFin: params[:dateFin], commentaire: params[:commentaire], etat: false)
             render json: "Demande Conge updated successfully."
+        else
+            render json: { error: "Demande Conge not found." }
+        end
+    end
+
+
+    def status
+        conge = DemandeConge.find(params[:id])
+        if conge
+            conge.update(etat: true)
+            render json: "Status Demande Conge updated successfully."
         else
             render json: { error: "Demande Conge not found." }
         end
@@ -58,7 +70,7 @@ class CongesController < ApplicationController
 
     private 
     def conge_params
-        params.require(:conge).permit(:dateDebut, :dateFin, :commentaire)
+        params.require(:conge).permit(:dateDebut, :dateFin, :commentaire, false)
     end
 
 end

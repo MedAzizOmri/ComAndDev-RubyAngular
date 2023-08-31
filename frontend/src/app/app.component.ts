@@ -9,5 +9,5 @@ import { Component } from '@angular/core';
     './app.component.scss']
 })
 export class AppComponent {
-  title = 'frontend';
+  title = 'Com & Dev';
 }

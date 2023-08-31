@@ -311,6 +311,8 @@
                             <th scope="col">Start Date</th>
                             <th scope="col">End Date</th>
                             <th scope="col">Reason Or Comment</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Decision</th>
                             <th scope="col">Actions</th>
                         </tr>
                     </thead>
@@ -320,8 +322,19 @@
                             <td>{{ conge.dateDebut }}</td>
                             <td>{{ conge.dateFin }}</td>
                             <td>{{ conge.commentaire }}</td>
+                            <td>
+                                <button class="btn" [class.btn-outline-danger]="conge.etat === false" [class.btn-outline-success]="conge.etat !== false">
+                                  {{ conge.etat === false ? 'Rejected' : 'Accepted' }}
+                                </button>
+                            </td>
                             <th>
-                                <button class="btn btn-outline-success" routerLink="/edit/conge/{{ conge.id }}">Edit</button> | <button class="btn btn-outline-danger" (click)="deleteConge(conge.id)">Delete</button>
+                                <button class="btn btn-secondary" *ngIf="!conge.etat" (click)="changeStatus(conge.id)">
+                                    Accept
+                                </button>
+                            </th>
+                            <th>
+                                <button class="btn btn-info" routerLink="/edit/conge/{{ conge.id }}">Edit</button> | 
+                                <button class="btn btn-danger" (click)="deleteConge(conge.id)"><a style="color:white;">Delete</a></button>
                             </th>
                         </tr>
                     </tbody>

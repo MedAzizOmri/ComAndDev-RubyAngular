@@ -51,12 +51,27 @@ export class ListCongesComponent {
   }
 
   deleteConge(id:any){
-    this.congeService.deleteConge(id).subscribe(
+    const shouldDelete = window.confirm("Are you sure you want to delete ?");
+
+    if (shouldDelete) {
+      this.congeService.deleteConge(id).subscribe(
+        conge => {
+          console.log("Conge has been deleted.");
+        }
+      )
+      alert("Permission deleted successfully !");
+      window.location.reload();
+    }
+    
+  }
+
+  changeStatus(id:any){
+    this.congeService.updateStatus(id).subscribe(
       conge => {
-        console.log("Conge has been deleted.");
+        console.log("Conge has been accepted.");
       }
     )
-    alert("Permission deleted successfully !");
+    window.location.reload();
   }
 
 }

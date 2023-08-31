@@ -25,11 +25,14 @@ export class LoginComponent {
 
   onSubmit(){
     this.userService.getConnected(this.userForm.value).subscribe(
-      user => {
-        alert("Login Successfully !");
+      ( user: any ) => {
         this.user=user;
         this.userForm.reset();
         this.router.navigate(['home']);
+      },
+      (error) => {
+        alert("Login Failed. Please check your credentials.");
+        console.error(error);
       }
     );
     

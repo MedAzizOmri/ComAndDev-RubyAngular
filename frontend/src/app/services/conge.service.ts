@@ -34,4 +34,8 @@ export class CongeService {
   deleteConge(id:any){
     return this.http.delete(this.url+'/demandeConge/'+id);
   }
+
+  updateStatus(id: any){
+    return this.http.put(this.url+'/demandeCongeStatus/'+id, this.httpOptions);
+  }
 }
